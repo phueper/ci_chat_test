@@ -1,0 +1,28 @@
+version: "2"
+services:
+  web:
+    build: .
+    hostname: chat-app-test
+    ports:
+      - "10080:80"
+    volumes:
+      - .:/var/www/codeigniter
+      - ci_cache:/var/www/codeigniter/system/cache
+      - ./docker/99_xdebug.ini:/usr/local/etc/php/conf.d/99_xdebug.ini
+#      - ./html/phpinfo.php:/var/www/html/phpinfo.php
+
+  db:
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: chat-app-test
+      MYSQL_USER: chat-app-test
+      MYSQL_PASSWORD: chat-app-test
+    ports:
+      - "13306:3306"
+    volumes:
+        - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+  ci_cache:
