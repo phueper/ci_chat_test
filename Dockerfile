@@ -25,7 +25,7 @@ COPY ./docker/docker-ssl.conf /etc/apache2/sites-available
 COPY ./docker/loglevel.conf /etc/apache2/conf-available
 COPY ./docker/codeigniter-docroot.conf /etc/apache2/conf-available
 RUN a2ensite docker-ssl \
-    a2dissite 000-default \
+    && a2dissite 000-default \
     && a2enmod rewrite ssl \
     && a2enconf loglevel \
     && a2enconf codeigniter-docroot
