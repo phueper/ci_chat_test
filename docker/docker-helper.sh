@@ -17,3 +17,8 @@ function dbash {
     [ -z "$container" ] && container=web
     docker-compose exec $container /bin/bash
 }
+
+function db-init {
+    docker-compose run --rm web mysql -u chat-app-test -pchat-app-test -h db chat-app-test < db_init.sql
+}
+
