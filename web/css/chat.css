@@ -1,0 +1,24 @@
+.chat {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 20px;
+}
+
+.chatoutput {
+    display: block;
+    border: 1px solid #000;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.chatoutput .sender {
+    font-weight: bold;
+}
+
+.chatoutput p {
+    margin: 0;
+    margin-bottom: 0.2em;
+    border-bottom: 1px solid black;
+}
